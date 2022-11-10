@@ -1,1 +1,1 @@
-# Youtube Reddit Bot
+# Youtube Reddit Bot GUI
