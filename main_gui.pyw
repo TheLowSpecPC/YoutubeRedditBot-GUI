@@ -503,20 +503,20 @@ def auto():
                                     EC.element_to_be_clickable((By.NAME, "identifier"))
                                 )
                                 mail.send_keys(con_gui.gmail)
-                                driver.find_element_by_id("identifierNext").click()
+                                driver.find_element("id", "identifierNext").click()
                                 sleep(1)
                                 passwd = WebDriverWait(driver, 10).until(
                                     EC.element_to_be_clickable((By.NAME, "Passwd"))
                                 )
                                 passwd.send_keys(con_gui.password)
-                                driver.find_element_by_id("passwordNext").click()
+                                driver.find_element("id", "passwordNext").click()
                                 sleep(2)
 
                                 # Upload
                                 driver.get(con_gui.upload_button)
                                 sleep(2)
-                                driver.find_element_by_css_selector(
-                                    "#content > input[type=file]"
+                                driver.find_element(
+                                    By.CSS_SELECTOR, "#content > input[type=file]"
                                 ).send_keys(down + "/" + name1)
                                 sleep(2)
                                 notkids = WebDriverWait(driver, 10).until(
@@ -541,7 +541,7 @@ def auto():
                                 )
                                 next3.click()
                                 sleep(1)
-                                driver.find_element_by_name("PUBLIC").click()
+                                driver.find_elemente(By.NAME, "PUBLIC").click()
                                 sleep(1)
                                 done = WebDriverWait(driver, 10).until(
                                     EC.element_to_be_clickable((By.ID, "done-button"))
@@ -825,20 +825,20 @@ def run():
                     EC.element_to_be_clickable((By.NAME, "identifier"))
                 )
                 mail.send_keys(con_gui.gmail)
-                driver.find_element_by_id("identifierNext").click()
+                driver.find_element("id", "identifierNext").click()
                 sleep(1)
                 passwd = WebDriverWait(driver, 10).until(
                     EC.element_to_be_clickable((By.NAME, "Passwd"))
                 )
                 passwd.send_keys(con_gui.password)
-                driver.find_element_by_id("passwordNext").click()
+                driver.find_element("id", "passwordNext").click()
                 sleep(2)
 
                 # Upload
                 driver.get(con_gui.upload_button)
                 sleep(2)
-                driver.find_element_by_css_selector(
-                    "#content > input[type=file]"
+                driver.find_element(
+                    By.CSS_SELECTOR, "#content > input[type=file]"
                 ).send_keys(down + "/" + con_gui.name)
                 sleep(2)
                 notkids = WebDriverWait(driver, 10).until(
@@ -861,7 +861,7 @@ def run():
                 )
                 next3.click()
                 sleep(1)
-                driver.find_element_by_name("PUBLIC").click()
+                driver.find_element(By.NAME, "PUBLIC").click()
                 sleep(1)
                 done = WebDriverWait(driver, 10).until(
                     EC.element_to_be_clickable((By.ID, "done-button"))
