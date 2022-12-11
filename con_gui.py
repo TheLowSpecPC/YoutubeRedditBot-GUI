@@ -27,23 +27,10 @@ if limits != "":
     limit = int(limits)
 else:
     limit = 20
-with open(cwd + "/Bot/Info/subreddit1.txt", "r") as f:
-    sub1 = f.readline()
-    f.close()
-with open(cwd + "/Bot/Info/subreddit2.txt", "r") as n:
-    sub2 = n.readline()
-    n.close()
-with open(cwd + "/Bot/Info/subreddit3.txt", "r") as o:
-    sub3 = o.readline()
-    o.close()
-with open(cwd + "/Bot/Info/subreddit4.txt", "r") as p:
-    sub4 = p.readline()
-    p.close()
-subre = sub1, sub2, sub3, sub4
+
 subreddit = []
-for i in subre:
-    if i != "":
-        subreddit.append(i)
+for i in os.listdir(cwd+"/Bot/Info/Sub"):
+    subreddit.append(i[:len(i)-4])
 
 # YouTube Bot
 with open(cwd + "/Bot/Info/gmail.txt", "r") as g:

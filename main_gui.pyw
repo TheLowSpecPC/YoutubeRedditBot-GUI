@@ -79,7 +79,7 @@ def reddit():
 
 def download():
     root2 = Tk()
-    root2.geometry("500x350")
+    root2.geometry("500x460")
     root2.config(bg="gray")
     root2.title("Setting (Downloader)")
     root2.iconbitmap(cwd + "/icon.ico")
@@ -90,24 +90,15 @@ def download():
             e1.close()
 
     def sub1():
-        with open(cwd + "/Bot/Info/subreddit1.txt", "w") as f1:
-            f1.write(f.get())
-            f1.close()
+        if f.get()!="":
+            if os.path.exists(cwd+"/Bot/Info/Sub/"+f.get()+".txt"):
+                os.remove(cwd+"/Bot/Info/Sub/"+f.get()+".txt")
+            open(cwd+"/Bot/Info/Sub/"+f.get()+".txt", "w")
 
     def sub2():
-        with open(cwd + "/Bot/Info/subreddit2.txt", "w") as n1:
-            n1.write(n.get())
-            n1.close()
-
-    def sub3():
-        with open(cwd + "/Bot/Info/subreddit3.txt", "w") as o1:
-            o1.write(o.get())
-            o1.close()
-
-    def sub4():
-        with open(cwd + "/Bot/Info/subreddit4.txt", "w") as p1:
-            p1.write(p.get())
-            p1.close()
+        if n.get()!="":
+            if os.path.exists(cwd+"/Bot/Info/Sub/"+n.get()+".txt"):
+                os.remove(cwd+"/Bot/Info/Sub/"+n.get()+".txt")
 
     Label(root2, text="No: Of Videos", font="Raleway", bg="black", fg="white").pack()
     e = Entry(root2, width="70")
@@ -115,29 +106,21 @@ def download():
     e.insert(0, con_gui.limit)
     Button(root2, text="Save", command=lim).pack()
 
-    Label(root2, text="1st Subreddit", font="Raleway", bg="black", fg="white").pack()
-    f = Entry(root2, width="70")
-    f.pack()
-    f.insert(0, con_gui.sub1)
-    Button(root2, text="Save", command=sub1).pack()
+    Label(root2, text="Subreddit", font="Raleway", bg="black", fg="white").pack()
+    f = Entry(root2, width="25")
+    f.place(x=75, y=100)
+    Button(root2, text="Save", command=sub1).place(x=125, y=125)
 
-    Label(root2, text="2nd Subreddit", font="Raleway", bg="black", fg="white").pack()
-    n = Entry(root2, width="70")
-    n.pack()
-    n.insert(0, con_gui.sub2)
-    Button(root2, text="Save", command=sub2).pack()
+    n = Entry(root2, width="25")
+    n.place(x=275, y=100)
+    Button(root2, text="Delete", command=sub2).place(x=325, y=125)
 
-    Label(root2, text="3rd Subreddit", font="Raleway", bg="black", fg="white").pack()
-    o = Entry(root2, width="70")
-    o.pack()
-    o.insert(0, con_gui.sub3)
-    Button(root2, text="Save", command=sub3).pack()
-
-    Label(root2, text="4th Subreddit", font="Raleway", bg="black", fg="white").pack()
-    p = Entry(root2, width="70")
-    p.pack()
-    p.insert(0, con_gui.sub4)
-    Button(root2, text="Save", command=sub4).pack()
+    x=1
+    sub = Text(root2, width="60", height="17")
+    sub.place(x=10, y=175)
+    for i in con_gui.subreddit:
+        sub.insert(END, str(x)+": "+i+"\n")
+        x+=1
 
 
 def google():
