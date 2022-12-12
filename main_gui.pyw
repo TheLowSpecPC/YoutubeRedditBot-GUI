@@ -315,12 +315,11 @@ def auto():
                             cmd.see("end")
                             progress["value"] += 10
                             no += round(con_gui.limit / len(sub))
-                            no1 = no + 1
                             try:
                                 for submission in reddit.subreddit(s).new(
                                     limit=None
                                 ):  # can use hot,top,new,rising
-                                    if x == no or x == no1 == True:
+                                    if x >= no:
                                         break
                                     else:
                                         if (
@@ -642,12 +641,11 @@ def run():
             cmd.see("end")
             progress["value"] += 10
             no += round(con_gui.limit / len(sub))
-            no1 = no + 1
             try:
                 for submission in reddit.subreddit(s).new(
                     limit=None
                 ):  # can use hot,top,new,rising
-                    if x == no or x == no1 == True:
+                    if x >= no:
                         break
                     else:
                         if submission.over_18 == False and submission.is_video == True:
