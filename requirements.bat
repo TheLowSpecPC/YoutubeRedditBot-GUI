@@ -7,3 +7,4 @@ pip install moviepy
 pip install selenium
 pip install undetected_chromedriver
 pip install pathlib
+pip install utils
