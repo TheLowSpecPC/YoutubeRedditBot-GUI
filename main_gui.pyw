@@ -382,7 +382,6 @@ def auto():
                                 cmd.see("end")
                                 # Destination path
                                 clip = VideoFileClip(filePath)
-                                clip = clip.resize((1920, 1080))
                                 duration = clip.duration
                                 cmd.insert(END, duration)
                                 cmd.insert(END, "\n")
@@ -698,7 +697,6 @@ def run():
                 cmd.see("end")
                 # Destination path
                 clip = VideoFileClip(filePath)
-                clip = clip.resize((1920, 1080))
                 duration = clip.duration
                 cmd.insert(END, duration)
                 cmd.insert(END, "\n")
