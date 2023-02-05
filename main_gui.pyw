@@ -327,8 +327,8 @@ def run(autocheck):
         path = cwd + "/Bot/Reddit"
         introName = "intro_vid"
         outroName = "Outro_vid"
-        name1 = con_gui.na + " " + str(part) + ".mp4"
         if autocheck == 1:
+            name1 = con_gui.na + " " + str(part) + ".mp4"
             outputFile = down + "/" + name1
         elif autocheck == 0:
             outputFile = down + "/" + con_gui.name
@@ -437,7 +437,6 @@ def run(autocheck):
     def chrome(part):
         cmd.insert(END, "____Uploading____\n")
         cmd.see("end")
-        name1 = con_gui.na + " " + str(part) + ".mp4"
         a = 0
         progress["value"] = 95
         while a == 0:
@@ -467,6 +466,7 @@ def run(autocheck):
                 driver.get(con_gui.upload_button)
                 sleep(2)
                 if autocheck == 1:
+                    name1 = con_gui.na + " " + str(part) + ".mp4"
                     driver.find_element(
                         By.CSS_SELECTOR, "#content > input[type=file]"
                     ).send_keys(down + "/" + name1)
